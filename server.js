@@ -369,3 +369,25 @@ app.listen(PORT, () => {
   console.log(`\n🚆 Rodalies Proxy v2 en http://localhost:${PORT}`);
   scheduleGtfsReload();
 });
+
+// ── GET /api/stop-id-lookup?name=Barcelona-Sants ─────────────────────────────
+// Dado un nombre (o parte de él), devuelve el stop_id real del GTFS.
+// El frontend lo usa como fallback cuando su stop_id hardcodeado no da resultados.
+app.get('/api/stop-id-lookup', (req, res) => {
+  if (!GTFS.ready) return res.status(503).json({ error: 'GTFS cargando...' });
+  const name = (req.query.name || '').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  if (!name) return res.status(400).json({ error: 'name es requerido' });
+
+  let best = null, bestScore = 0;
+  for (const [id, stop] of Object.entries(GTFS.stops)) {
+    const sn = stop.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    if (sn === name) { best = { stopId: id, stopName: stop.name }; break; }
+    if (sn.includes(name) || name.includes(sn)) {
+      const score = Math.min(sn.length, name.length) / Math.max(sn.length, name.length);
+      if (score > bestScore) { bestScore = score; best = { stopId: id, stopName: stop.name }; }
+    }
+  }
+  if (best) return res.json(best);
+  res.status(404).json({ error: 'Stop no encontrado' });
+});

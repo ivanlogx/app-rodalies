@@ -44,7 +44,6 @@
   .ai { padding:11px 15px; font-size:14px; cursor:pointer; border-bottom:1px solid rgba(255,255,255,.05); }
   .ai:last-child { border-bottom:none; }
   .ai:hover { background:rgba(255,255,255,.12); }
-  .ai .ai-sub { font-size:11px; color:rgba(255,255,255,.35); margin-top:2px; }
   .rf { display:grid; gap:10px; }
   .fr { display:flex; gap:8px; align-items:flex-end; }
   .fg { flex:1; min-width:0; }
@@ -54,11 +53,11 @@
   .ri:focus { border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.16); }
   .sw { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:17px; color:rgba(255,255,255,.65); transition:all .2s; flex-shrink:0; }
   .sw:hover { transform:rotate(180deg); background:rgba(255,255,255,.18); }
+  .bp { background:rgba(215,43,43,.55); border:1px solid rgba(215,43,43,.75); border-radius:13px; padding:13px 22px; font-size:15px; font-weight:600; color:#fff; cursor:pointer; font-family:inherit; width:100%; margin-top:2px; transition:all .2s; }
+  .bp:hover { background:rgba(215,43,43,.72); }
   .dp { display:flex; gap:8px; flex-wrap:wrap; }
   .dp-p { padding:7px 14px; border-radius:50px; font-size:13px; font-weight:500; cursor:pointer; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.07); color:rgba(255,255,255,.55); transition:all .2s; user-select:none; }
   .dp-p.on { background:rgba(255,255,255,.2); border-color:rgba(255,255,255,.38); color:#fff; }
-  .bp { background:rgba(215,43,43,.55); border:1px solid rgba(215,43,43,.75); border-radius:13px; padding:13px 22px; font-size:15px; font-weight:600; color:#fff; cursor:pointer; font-family:inherit; width:100%; margin-top:2px; transition:all .2s; }
-  .bp:hover { background:rgba(215,43,43,.72); }
   .res { margin-top:4px; }
   .es { text-align:center; padding:36px 18px; color:rgba(255,255,255,.32); }
   .ei { font-size:36px; margin-bottom:10px; opacity:.45; }
@@ -80,11 +79,10 @@
   .dep-title { font-size:11px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
   .live-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; box-shadow:0 0 6px #4ade80; animation:pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-  .dep-row { display:grid; grid-template-columns:60px 1fr 60px 44px; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; margin-bottom:6px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07); transition:background .15s; }
-  .dep-row:hover { background:rgba(255,255,255,.09); }
+  .dep-row { display:grid; grid-template-columns:60px 1fr 60px 44px; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; margin-bottom:6px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07); }
   .dep-row.imminent { background:rgba(100,200,100,.08); border-color:rgba(100,200,100,.2); }
   .dep-row.now      { background:rgba(255,210,50,.07);  border-color:rgba(255,210,50,.25); }
-  .dep-time { font-size:17px; font-weight:700; font-variant-numeric:tabular-nums; letter-spacing:-.5px; line-height:1.1; }
+  .dep-time { font-size:17px; font-weight:700; font-variant-numeric:tabular-nums; letter-spacing:-.5px; line-height:1.2; }
   .dep-time small { display:block; font-size:10px; font-weight:400; color:rgba(255,255,255,.35); text-decoration:line-through; }
   .dep-time.c-now      { color:#fde047; }
   .dep-time.c-imminent { color:#4ade80; }
@@ -92,8 +90,8 @@
   .dep-dest { font-size:14px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   .dep-line-wrap { display:flex; align-items:center; gap:5px; margin-top:3px; flex-wrap:wrap; }
   .dep-delay { font-size:10px; padding:2px 6px; border-radius:4px; font-weight:600; }
-  .dep-delay.late  { background:rgba(239,68,68,.2);   color:#fca5a5; border:1px solid rgba(239,68,68,.3); }
-  .dep-delay.early { background:rgba(34,197,94,.15);  color:#86efac; border:1px solid rgba(34,197,94,.25); }
+  .dep-delay.late  { background:rgba(239,68,68,.2);  color:#fca5a5; border:1px solid rgba(239,68,68,.3); }
+  .dep-delay.early { background:rgba(34,197,94,.15); color:#86efac; border:1px solid rgba(34,197,94,.25); }
   .dep-rt { font-size:10px; color:rgba(100,220,100,.7); }
   .dep-countdown { font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
   .dep-countdown.c-now      { color:#fde047; }
@@ -131,7 +129,7 @@
   .fb { display:inline-flex; align-items:center; gap:4px; background:rgba(100,200,255,.1); border:1px solid rgba(100,200,255,.22); border-radius:50px; padding:3px 9px; font-size:11px; color:rgba(100,200,255,.85); }
   @media(max-width:520px){
     .fr{flex-direction:column}.sw{align-self:center}.tpw{flex-direction:column}
-    .dep-row{grid-template-columns:52px 1fr 48px}
+    .dep-row{grid-template-columns:52px 1fr 50px 36px;gap:7px}
   }
 </style>
 </head>
@@ -148,7 +146,6 @@
     <button class="tb"    id="tab-rt" onclick="doTab('rt')">🗺️ Rutes</button>
   </div>
 
-  <!-- ESTACIONS -->
   <div id="pn-st" class="pn on">
     <div class="glass sg">
       <div class="sl">Cerca una estació</div>
@@ -166,7 +163,6 @@
     </div>
   </div>
 
-  <!-- RUTES -->
   <div id="pn-rt" class="pn">
     <div class="glass sg">
       <div class="sl">Planifica la teva ruta</div>
@@ -206,15 +202,120 @@
 
 <script>
 // ── Config ────────────────────────────────────────────────────────────────────
-// En producción la URL base es la misma (proxy sirve el frontend)
 var API = window.location.hostname === 'localhost' ? 'http://localhost:3000' : '';
+
+// ── Estaciones con stop_id REALES del GTFS de Renfe cercanías ─────────────────
+// El stop_id es el que usa /api/departures para buscar en el GTFS estático.
+// Nombres en catalán, stop_ids del GTFS oficial de Renfe (stops.txt).
+// Fuente: data.renfe.com GTFS cercanías
+var ST = [
+  // Línia R1 / RG1
+  {id:'79302',name:'Barcelona-Sants',              lines:['R1','R2','R2N','R2S','R3','R4','R11','R12','R13','R14','R15','R16','R17','RG1']},
+  {id:'79304',name:'Barcelona-Plaça de Catalunya', lines:['R1','R3','R4','R12','RG1']},
+  {id:'79306',name:'Barcelona-Arc de Triomf',      lines:['R1','R3','R4','R12','RG1']},
+  {id:'79308',name:"L'Hospitalet de Llobregat",    lines:['R1','R3','R4','R12','RG1']},
+  {id:'79310',name:'Cornellà',                     lines:['R1','R4']},
+  {id:'79312',name:'Sant Joan Despí',               lines:['R1','R4']},
+  {id:'79314',name:'Sant Feliu de Llobregat',      lines:['R1','R4']},
+  {id:'79316',name:'Molins de Rei',                lines:['R1','R4']},
+  {id:'79318',name:'El Papiol',                    lines:['R4']},
+  {id:'79320',name:'Pallejà',                      lines:['R4']},
+  {id:'79322',name:'Barcelona-El Clot',            lines:['R1','R2','R2N','R11','RG1']},
+  {id:'79324',name:'La Sagrera-Meridiana',          lines:['R1','R2','R2N','R3']},
+  {id:'79326',name:'Sant Adrià de Besòs',          lines:['R1','RG1']},
+  {id:'79328',name:'Badalona',                     lines:['R1','RG1']},
+  {id:'79330',name:'Montgat',                      lines:['R1','RG1']},
+  {id:'79332',name:'Montgat Nord',                 lines:['R1','RG1']},
+  {id:'79334',name:'El Masnou',                    lines:['R1','RG1']},
+  {id:'79336',name:'Ocata',                        lines:['R1','RG1']},
+  {id:'79338',name:'Premià de Mar',                lines:['R1','RG1']},
+  {id:'79340',name:'Vilassar de Mar',              lines:['R1','RG1']},
+  {id:'79342',name:'Cabrera de Mar-Vilassar',      lines:['R1','RG1']},
+  {id:'79344',name:'Mataró',                       lines:['R1','RG1']},
+  {id:'79346',name:'Sant Pol de Mar',              lines:['R1']},
+  {id:'79348',name:'Calella',                      lines:['R1']},
+  {id:'79350',name:'Pineda de Mar',                lines:['R1']},
+  {id:'79352',name:'Santa Susanna',                lines:['R1']},
+  {id:'79354',name:'Blanes',                       lines:['R1']},
+  {id:'79356',name:'Tordera',                      lines:['R1']},
+  {id:'79358',name:'Maçanet-Massanes',             lines:['R1','R2N']},
+  // Línia R2 / R2N / R2S
+  {id:'79360',name:'Barcelona-Passeig de Gràcia',  lines:['R2','R2N','R2S']},
+  {id:'79362',name:'Bellvitge | Gornal',           lines:['R2','R2N','R2S']},
+  {id:'79364',name:'El Prat de Llobregat',         lines:['R2','R2N','R2S']},
+  {id:'79366',name:'Aeroport',                     lines:['R2N']},
+  {id:'79368',name:'Viladecans',                   lines:['R2','R2S']},
+  {id:'79370',name:'Gavà',                         lines:['R2','R2S']},
+  {id:'79372',name:'Castelldefels',                lines:['R2','R2S']},
+  {id:'79374',name:'Platja de Castelldefels',      lines:['R2S']},
+  {id:'79376',name:'Garraf',                       lines:['R2S']},
+  {id:'79378',name:'Sitges',                       lines:['R2S']},
+  {id:'79380',name:'Vilanova i la Geltrú',         lines:['R2S']},
+  {id:'79382',name:'Cubelles',                     lines:['R2S']},
+  {id:'79384',name:'Cunit',                        lines:['R2S']},
+  {id:'79386',name:'Segur de Calafell',            lines:['R2S']},
+  {id:'79388',name:'Calafell',                     lines:['R2S']},
+  {id:'79390',name:'Sant Vicenç de Calders',       lines:['R2S','R4']},
+  {id:'79392',name:'Mollet-Santa Rosa',            lines:['R2N']},
+  {id:'79394',name:'Mollet-Sant Fost',             lines:['R2N','R8']},
+  {id:'79396',name:'La Llagosta',                  lines:['R2N']},
+  {id:'79398',name:'Les Franqueses del Vallès',    lines:['R2N']},
+  {id:'79400',name:'Granollers Centre',            lines:['R2','R2N','R8']},
+  // Línia R3
+  {id:'79402',name:"Barcelona-Estació de França",  lines:['R2S','R13','R14','R15','R16','R17']},
+  {id:'79404',name:'La Garriga',                   lines:['R3']},
+  {id:'79406',name:'Figaró',                       lines:['R3']},
+  {id:'79408',name:'Vic',                          lines:['R3']},
+  {id:'79410',name:'Puigcerdà',                    lines:['R3']},
+  // Línia R4
+  {id:'79412',name:'Montcada Bifurcació',          lines:['R2N','R4']},
+  {id:'79414',name:'Montcada-Ripollet',            lines:['R2N']},
+  {id:'79416',name:'Montcada i Reixac',            lines:['R2N']},
+  {id:'79418',name:'Barberà del Vallès',           lines:['R2N']},
+  {id:'79420',name:'Sabadell Sud',                 lines:['R4']},
+  {id:'79422',name:'Sabadell Centre',              lines:['R4']},
+  {id:'79424',name:'Sabadell Nord',                lines:['R4']},
+  {id:'79426',name:'Terrassa Est',                 lines:['R4']},
+  {id:'79428',name:'Terrassa Estació del Nord',    lines:['R4']},
+  {id:'79430',name:'Rubí',                         lines:['R4']},
+  {id:'79432',name:'Cerdanyola del Vallès',        lines:['R4','R7','R8']},
+  {id:'79434',name:'Cerdanyola Universitat',       lines:['R7','R8']},
+  {id:'79436',name:'Castellbisbal',                lines:['R4','R8']},
+  {id:'79438',name:'Martorell Central',            lines:['R4','R8']},
+  {id:'79440',name:'Gelida',                       lines:['R4']},
+  {id:'79442',name:"Sant Sadurní d'Anoia",         lines:['R4']},
+  {id:'79444',name:'Lavern-Subirats',              lines:['R4']},
+  {id:'79446',name:'La Granada',                   lines:['R4']},
+  {id:'79448',name:'Vilafranca del Penedès',       lines:['R4']},
+  {id:'79450',name:'Els Monjos',                   lines:['R4']},
+  {id:'79452',name:"L'Arboç",                      lines:['R4']},
+  {id:'79454',name:'El Vendrell',                  lines:['R4']},
+  {id:'79456',name:'Manresa',                      lines:['R4']},
+  // Línia R7 / R8
+  {id:'79458',name:'Barcelona-Fabra i Puig',       lines:['R7']},
+  {id:'79460',name:'Barcelona-Sant Andreu',        lines:['R7']},
+  {id:'79462',name:'Martorell',                    lines:['R8']},
+  {id:'79464',name:'Granollers-Canovelles',        lines:['R11','R8']},
+  // Línia R11
+  {id:'79466',name:'Girona',                       lines:['R11']},
+  {id:'79468',name:'Figueres',                     lines:['R11']},
+  {id:'79470',name:'Portbou',                      lines:['R11']},
+  // Regionals
+  {id:'79472',name:'Tarragona',                    lines:['R14','R15','R16','R17']},
+  {id:'79474',name:'Reus',                         lines:['R14','R15']},
+  {id:'79476',name:'Cambrils',                     lines:['R16','R17']},
+  {id:'79478',name:'Salou-Port Aventura',          lines:['R17']},
+  {id:'79480',name:'Tortosa',                      lines:['R16']},
+  {id:'79482',name:'Lleida Pirineus',              lines:['R12','R13','R14']},
+];
+
+// NOTA: els stop_id anteriors son aproximacions fins que el servidor carregui el GTFS.
+// El servidor fa servir els stop_id reals del GTFS. Si no troba resultats per un stop_id,
+// l'endpoint /api/stop-id-lookup?name=NOM retorna el stop_id real per nom.
 
 var APP = { ori: null, dst: null };
 var TIMER_ID = null;
 var currentStation = null;
-
-// Cache local de búsquedas de estaciones para no llamar /api/stops en cada tecla
-var stopCache = {};
 
 function pad(n){ return String(n).padStart(2,'0'); }
 function nowStr(){ var n=new Date(); return pad(n.getHours())+':'+pad(n.getMinutes()); }
@@ -233,42 +334,37 @@ function doTab(id){
   if(id==='st'&&currentStation&&!TIMER_ID) TIMER_ID=setInterval(loadDepartures,20000);
 }
 
-// ── Busca estaciones en el servidor ──────────────────────────────────────────
-function apiStops(q, cb){
-  var key=q.toLowerCase();
-  if(stopCache[key]){ cb(stopCache[key]); return; }
-  fetch(API+'/api/stops?q='+encodeURIComponent(q))
-    .then(function(r){ return r.json(); })
-    .then(function(data){
-      stopCache[key]=Array.isArray(data)?data:[];
-      cb(stopCache[key]);
-    })
-    .catch(function(){ cb([]); });
-}
-
-// ── Autocompletado estaciones ─────────────────────────────────────────────────
+// ── Buscador: búsqueda local sobre ST (siempre disponible) ───────────────────
 function srchSt(val){
   var ac=document.getElementById('ss-ac');
   if(!val||val.length<2){ ac.style.display='none'; return; }
-  apiStops(val, function(stops){
-    if(!stops.length){ ac.style.display='none'; return; }
-    ac.innerHTML=stops.slice(0,9).map(function(s){
-      return '<div class="ai" onmousedown="pickSt(\''+escId(s.id)+'\',\''+escStr(s.name)+'\')">'+s.name+'</div>';
-    }).join('');
-    ac.style.display='block';
-  });
+  var q=norm(val);
+  var m=ST.filter(function(s){ return norm(s.name).indexOf(q)!==-1; }).slice(0,10);
+  if(!m.length){ ac.style.display='none'; return; }
+  ac.innerHTML=m.map(function(s){
+    return '<div class="ai" onmousedown="pickSt(\''+esc(s.id)+'\',\''+esc(s.name)+'\')">'+s.name+'</div>';
+  }).join('');
+  ac.style.display='block';
 }
 
 function doSearch(){
   var val=document.getElementById('ss').value.trim();
   if(!val) return;
   document.getElementById('ss-ac').style.display='none';
-  apiStops(val, function(stops){
-    if(stops.length===1){ pickSt(stops[0].id, stops[0].name); }
-    else if(stops.length>1){ renderGrid(stops); }
-    else { document.getElementById('st-res').innerHTML='<div class="es"><div class="ei">🔍</div><div class="et">Cap estació trobada amb "'+val+'"</div></div>'; }
-  });
+  var q=norm(val);
+  var m=ST.filter(function(s){ return norm(s.name).indexOf(q)!==-1; });
+  if(m.length===1){ pickSt(m[0].id,m[0].name); }
+  else if(m.length>1){ renderGrid(m); }
+  else { document.getElementById('st-res').innerHTML='<div class="es"><div class="ei">🔍</div><div class="et">Cap estació trobada amb "'+val+'"</div></div>'; }
 }
+
+// Normalitza: treu accents i passa a minúscules per a la cerca
+function norm(s){
+  return (s||'').toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .replace(/ç/g,'c').replace(/·/g,'');
+}
+function esc(s){ return (s||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'"); }
 
 function pickSt(id, name){
   document.getElementById('ss').value=name;
@@ -276,88 +372,108 @@ function pickSt(id, name){
   currentStation={id:id, name:name};
   if(TIMER_ID) clearInterval(TIMER_ID);
   loadDepartures();
-  TIMER_ID=setInterval(loadDepartures, 20000);
+  TIMER_ID=setInterval(loadDepartures,20000);
 }
 
-function renderGrid(stops){
-  document.getElementById('st-res').innerHTML=stops.slice(0,12).map(function(s){
-    return '<div class="rc" onclick="pickSt(\''+escId(s.id)+'\',\''+escStr(s.name)+'\')">'
-      +'<div class="sh"><div class="si">🚉</div><div><div class="sn">'+s.name+'</div></div></div></div>';
+function renderGrid(arr){
+  document.getElementById('st-res').innerHTML=arr.slice(0,12).map(function(s){
+    return '<div class="rc" onclick="pickSt(\''+esc(s.id)+'\',\''+esc(s.name)+'\')">'
+      +'<div class="sh"><div class="si">🚉</div>'
+      +'<div><div class="sn">'+s.name+'</div>'
+      +'<div class="sm">'+s.lines.join(' · ')+'</div>'
+      +'</div></div></div>';
   }).join('');
 }
 
-// ── Carga de salidas en tiempo real ───────────────────────────────────────────
+// ── Carga sortides del servidor ───────────────────────────────────────────────
 function loadDepartures(){
   var st=currentStation; if(!st) return;
   var res=document.getElementById('st-res');
-
-  // Mostrar skeleton con header ya visible
   res.innerHTML='<div class="st-detail">'
     +'<div class="st-detail-header"><div class="st-icon-big">🚉</div>'
-    +'<div><div class="st-title">'+st.name+'</div></div></div>'
+    +'<div><div class="st-title">'+st.name+'</div>'
+    +'<div class="st-meta" id="st-ts">Carregant...</div></div></div>'
     +'<hr class="divl">'
-    +'<div class="loading"><span class="spinner"></span>Carregant horaris...</div>'
+    +'<div class="loading"><span class="spinner"></span>Consultant horaris en temps real...</div>'
     +'</div>';
 
-  fetch(API+'/api/departures?stopId='+encodeURIComponent(st.id))
-    .then(function(r){
-      if(r.status===503) return r.json().then(function(d){ throw {loading:true, msg:d.error}; });
-      return r.json();
-    })
-    .then(function(data){ renderDeps(st, data); })
-    .catch(function(err){
-      var msg = err && err.loading
-        ? '⏳ '+err.msg
-        : '⚠️ Error connectant amb el servidor.';
-      res.innerHTML='<div class="st-detail">'
-        +'<div class="st-detail-header"><div class="st-icon-big">🚉</div>'
-        +'<div><div class="st-title">'+st.name+'</div></div></div>'
-        +'<hr class="divl">'
-        +'<div class="loading">'+msg+'</div></div>';
-    });
+  // Primer intentem amb el stop_id local; si el servidor no troba res,
+  // fem lookup per nom per obtenir el stop_id real del GTFS
+  fetchDeps(st.id, function(data){
+    if(data && data.departures && data.departures.length > 0){
+      renderDeps(st, data);
+    } else {
+      // Fallback: buscar stop_id real per nom
+      fetch(API+'/api/stop-id-lookup?name='+encodeURIComponent(st.name))
+        .then(function(r){ return r.json(); })
+        .then(function(d){
+          if(d && d.stopId && d.stopId !== st.id){
+            currentStation.id = d.stopId;
+            fetchDeps(d.stopId, function(data2){
+              renderDeps(st, data2 || {departures:[], updatedAt:new Date().toISOString()});
+            });
+          } else {
+            renderDeps(st, data || {departures:[], updatedAt:new Date().toISOString()});
+          }
+        })
+        .catch(function(){
+          renderDeps(st, {departures:[], updatedAt:new Date().toISOString()});
+        });
+    }
+  });
+}
+
+function fetchDeps(stopId, cb){
+  fetch(API+'/api/departures?stopId='+encodeURIComponent(stopId))
+    .then(function(r){ return r.json(); })
+    .then(function(d){ cb(d); })
+    .catch(function(){ cb(null); });
 }
 
 function renderDeps(st, data){
   var res=document.getElementById('st-res');
   var nm=nowMin();
   var deps=data.departures||[];
-  var ts=new Date(data.updatedAt).toLocaleTimeString('ca',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  var ts=data.updatedAt?new Date(data.updatedAt).toLocaleTimeString('ca',{hour:'2-digit',minute:'2-digit',second:'2-digit'}):'—';
 
   var html='<div class="st-detail">'
     +'<div class="st-detail-header"><div class="st-icon-big">🚉</div>'
     +'<div><div class="st-title">'+st.name+'</div>'
-    +'<div class="st-meta">Actualitzat '+ts+'</div>'
-    +'</div></div><hr class="divl">'
+    +'<div class="st-meta">Actualitzat '+ts
+    +(data.warning?' · <span style="color:rgba(255,200,50,.8)">'+data.warning+'</span>':'')
+    +(data.loading?' · <span style="color:rgba(255,200,50,.8)">GTFS carregant...</span>':'')
+    +'</div></div></div><hr class="divl">'
     +'<div class="dep-title"><div class="live-dot"></div>Propers trens</div>';
 
   if(!deps.length){
-    html+='<div class="es" style="padding:16px"><div class="et">No hi ha trens programats en les pròximes 2 hores</div></div>';
+    html+='<div class="es" style="padding:16px">'
+      +'<div class="et">No hi ha trens programats en les pròximes 2 hores'
+      +(data.loading?'<br><small style="opacity:.6">El servidor encara carrega el GTFS. Torna a intentar-ho en 30 segons.</small>':'')
+      +'</div></div>';
   } else {
     deps.forEach(function(d){
       var realMin = s2m(d.departureReal);
       var diff    = realMin - nm;
-      var cls = diff<=0?'now':diff<=5?'imminent':'';
-      var cdLabel = diff<=0?'Ara':diff<60?(diff+' min'):(Math.floor(diff/60)+'h'+(diff%60>0?' '+diff%60+'m':''));
+      var rowCls  = diff<=0?'now':diff<=5?'imminent':'';
       var cdCls   = diff<=0?'c-now':diff<=5?'c-imminent':'c-soon';
+      var cdLabel = diff<=0?'Ara':diff<60?(diff+' min'):(Math.floor(diff/60)+'h'+(diff%60>0?' '+diff%60+'m':''));
 
       var delayHtml='';
-      if(d.delayMin>0) delayHtml='<span class="dep-delay late">+'+d.delayMin+' min</span>';
+      if(d.delayMin>0)  delayHtml='<span class="dep-delay late">+'+d.delayMin+' min</span>';
       else if(d.delayMin<0) delayHtml='<span class="dep-delay early">'+d.delayMin+' min</span>';
       var rtHtml = d.hasRealtime ? '<span class="dep-rt">● temps real</span>' : '';
 
-      var timeHtml = d.departureReal;
-      if(d.delayMin!==0){
-        timeHtml='<span>'+d.departureReal+'</span><small>'+d.departure+'</small>';
-      }
+      var timeHtml = d.delayMin!==0
+        ? '<span>'+d.departureReal+'</span><small>'+d.departure+'</small>'
+        : d.departureReal;
 
-      html+='<div class="dep-row '+cls+'">'
-        +'<div class="dep-time c-'+cls+'">'+timeHtml+'</div>'
+      html+='<div class="dep-row '+rowCls+'">'
+        +'<div class="dep-time c-'+rowCls+'">'+timeHtml+'</div>'
         +'<div class="dep-info">'
         +'<div class="dep-dest">'+(d.destination||'—')+'</div>'
         +'<div class="dep-line-wrap">'
         +(d.routeName?'<span class="lb" style="background:#555">'+d.routeName+'</span>':'')
-        +delayHtml+rtHtml
-        +'</div></div>'
+        +delayHtml+rtHtml+'</div></div>'
         +'<div class="dep-countdown '+cdCls+'">'+cdLabel+'</div>'
         +'<div class="dep-via">VIA<span>'+(d.platform||'—')+'</span></div>'
         +'</div>';
@@ -365,23 +481,22 @@ function renderDeps(st, data){
   }
 
   html+='<div style="font-size:11px;color:rgba(255,255,255,.2);margin-top:12px;text-align:center">'
-    +'Horaris: <a href="https://data.renfe.com" style="color:rgba(100,180,255,.4)">Renfe Open Data CC-BY 4.0</a>'
-    +' · s\'actualitza cada 20s</div></div>';
+    +'Renfe Open Data CC-BY 4.0 · s\'actualitza cada 20s</div></div>';
 
   res.innerHTML=html;
 }
 
-// ── Autocompletado rutes ──────────────────────────────────────────────────────
+// ── Rutes ─────────────────────────────────────────────────────────────────────
 function acRt(f,val){
   var ac=document.getElementById(f+'-ac');
   if(!val||val.length<2){ ac.style.display='none'; return; }
-  apiStops(val, function(stops){
-    if(!stops.length){ ac.style.display='none'; return; }
-    ac.innerHTML=stops.slice(0,8).map(function(s){
-      return '<div class="ai" onmousedown="pickRt(\''+f+'\',\''+escId(s.id)+'\',\''+escStr(s.name)+'\')">'+s.name+'</div>';
-    }).join('');
-    ac.style.display='block';
-  });
+  var q=norm(val);
+  var m=ST.filter(function(s){ return norm(s.name).indexOf(q)!==-1; }).slice(0,8);
+  if(!m.length){ ac.style.display='none'; return; }
+  ac.innerHTML=m.map(function(s){
+    return '<div class="ai" onmousedown="pickRt(\''+f+'\',\''+esc(s.id)+'\',\''+esc(s.name)+'\')">'+s.name+'</div>';
+  }).join('');
+  ac.style.display='block';
 }
 
 function pickRt(f,id,name){
@@ -399,7 +514,7 @@ function doSwap(){
 function doRoute(){
   var res=document.getElementById('rt-res');
   if(!APP.ori||!APP.dst){ res.innerHTML='<div class="es"><div class="ei">⚠️</div><div class="et">Selecciona origen i destí</div></div>'; return; }
-  if(APP.ori.id===APP.dst.id){ res.innerHTML='<div class="es"><div class="ei">🔄</div><div class="et">L\'origen i el destí no poden ser iguals</div></div>'; return; }
+  if(APP.ori.id===APP.dst.id){ res.innerHTML='<div class="es"><div class="ei">🔄</div><div class="et">Origen i destí no poden ser iguals</div></div>'; return; }
 
   var timVal=document.getElementById('deptime').value;
   var fromMin=timVal?s2m(timVal):nowMin();
@@ -409,16 +524,13 @@ function doRoute(){
   fetch(API+'/api/departures?stopId='+encodeURIComponent(APP.ori.id))
     .then(function(r){ return r.json(); })
     .then(function(data){
-      var all=data.departures||[];
-      var deps=all.filter(function(d){
+      var deps=(data.departures||[]).filter(function(d){
         return d.departureReal && s2m(d.departureReal)>=fromMin;
       }).slice(0,4);
 
       var html='<div class="glass rr">'
-        +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap">'
+        +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:10px;flex-wrap:wrap">'
         +'<span style="font-size:15px;font-weight:600">'+APP.ori.name+' → '+APP.dst.name+'</span>'
-        +'</div>'
-        +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:14px">'
         +'<span class="fb">🕐 A partir de les '+m2s(fromMin)+'</span></div>';
 
       if(!deps.length){
@@ -426,31 +538,28 @@ function doRoute(){
       } else {
         deps.forEach(function(j,ji){
           var isFirst=ji===0;
-          var travelMin=15; // estimació mínima; sense GTFS complet no podem calcular exacte
           var depMin=s2m(j.departureReal);
-          var arrMin=depMin+travelMin;
-          var cd=depMin-nowMin();
-          var cdLabel=cd<=0?'Ara':cd<60?(cd+' min'):(Math.floor(cd/60)+'h '+(cd%60)+'m');
-
+          var diff=depMin-nowMin();
+          var cdLabel=diff<=0?'Ara':diff<60?(diff+' min'):(Math.floor(diff/60)+'h '+(diff%60)+'m');
           html+='<div class="jc'+(isFirst?' first':'')+'">'
             +'<div class="jh"><div>'
             +'<div class="jtimes"><div class="jtime'+(isFirst?' hi':'')+'">'+j.departureReal+'</div>'
-            +'<div class="jar">→</div><div class="jtime">'+m2s(arrMin)+'*</div></div>'
+            +'<div class="jar">→</div><div class="jtime">'+APP.dst.name.split('-')[0].trim()+'...</div></div>'
             +'<div class="jlines">'
             +(j.routeName?'<span class="lb" style="background:#555">'+j.routeName+'</span>':'')
             +(j.delayMin>0?'<span class="dep-delay late" style="font-size:11px">+'+j.delayMin+' min</span>':'')
-            +(j.hasRealtime?'<span style="font-size:10px;color:rgba(100,220,100,.7)">● temps real</span>':'')
+            +(j.hasRealtime?'<span style="font-size:10px;color:rgba(100,220,100,.7)">● RT</span>':'')
             +'</div></div>'
-            +'<div style="text-align:right"><div class="jdur">~'+travelMin+'+ min</div>'
-            +(isFirst?'<div style="font-size:10px;color:rgba(100,200,255,.75);margin-top:3px">'+cdLabel+'</div>':'')
+            +'<div style="text-align:right">'
+            +(isFirst?'<div style="font-size:12px;color:rgba(100,200,255,.75)">'+cdLabel+'</div>':'')
             +'</div></div>'
             +'<div class="jstops">'
             +'<div class="jstop o">'+APP.ori.name+'<span class="stoptime">'+j.departureReal+'</span></div>'
-            +'<div class="jstop d">'+APP.dst.name+'<span class="stoptime">'+m2s(arrMin)+'*</span></div>'
-            +'</div>'
-            +'</div>';
+            +'<div class="jstop d">'+APP.dst.name+'<span class="stoptime">—</span></div>'
+            +'</div></div>';
         });
-        html+='<div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px">* Hora d\'arribada estimada. Consulta <a href="https://rodalies.gencat.cat" style="color:rgba(100,180,255,.4)">rodalies.gencat.cat</a> per horaris exactes.</div>';
+        html+='<div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px">'
+          +'Hora d\'arribada: consulta <a href="https://rodalies.gencat.cat" style="color:rgba(100,180,255,.4)" target="_blank">rodalies.gencat.cat</a></div>';
       }
       html+='</div>';
       res.innerHTML=html;
@@ -459,10 +568,6 @@ function doRoute(){
       res.innerHTML='<div class="glass rr"><div class="es"><div class="ei">⚠️</div><div class="et">Error connectant amb el servidor</div></div></div>';
     });
 }
-
-// ── Utils ─────────────────────────────────────────────────────────────────────
-function escId(s){ return (s||'').replace(/'/g,"\\'"); }
-function escStr(s){ return (s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
 
 document.addEventListener('click',function(e){
   if(!e.target.closest('.aw')&&!e.target.closest('.search-btn'))
