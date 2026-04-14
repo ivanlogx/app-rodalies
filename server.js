@@ -10,7 +10,7 @@
 const express = require('express');
 const cors    = require('cors');
 const fetch   = require('node-fetch');
-const GtfsRealtimeBindings = require('gtfs-realtime-bindings');
+
 const NodeCache = require('node-cache');
 const path  = require('path');
 
