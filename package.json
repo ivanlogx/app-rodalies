@@ -1,7 +1,7 @@
 {
   "name": "rodalies-proxy",
-  "version": "1.0.0",
-  "description": "Proxy backend para la app de Rodalies - usa datos GTFS-RT de Renfe",
+  "version": "2.0.0",
+  "description": "Proxy backend para Rodalies - GTFS estático + GTFS-RT tiempo real de Renfe",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -11,7 +11,8 @@
     "express": "^4.18.2",
     "cors": "^2.8.5",
     "node-fetch": "^2.7.0",
-    "node-cache": "^5.1.2"
+    "node-cache": "^5.1.2",
+    "adm-zip": "^0.5.10"
   },
   "engines": {
     "node": ">=18.0.0"

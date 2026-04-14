@@ -38,21 +38,22 @@
   .gi::placeholder { color:rgba(255,255,255,.32); }
   .gi:focus { border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.16); box-shadow:0 0 0 3px rgba(255,255,255,.08); }
   .search-btn { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3); border-radius:13px; padding:0 20px; font-size:18px; cursor:pointer; color:#fff; transition:all .2s; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
-  .search-btn:hover { background:rgba(255,255,255,.25); transform:scale(1.04); }
+  .search-btn:hover { background:rgba(255,255,255,.25); }
+  .aw { position:relative; }
+  .al { position:absolute; top:calc(100% + 4px); left:0; right:0; background:rgba(15,25,55,.97); backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,.18); border-radius:13px; z-index:200; max-height:260px; overflow-y:auto; box-shadow:0 8px 28px rgba(0,0,0,.4); display:none; }
+  .ai { padding:11px 15px; font-size:14px; cursor:pointer; border-bottom:1px solid rgba(255,255,255,.05); }
+  .ai:last-child { border-bottom:none; }
+  .ai:hover { background:rgba(255,255,255,.12); }
+  .ai .ai-sub { font-size:11px; color:rgba(255,255,255,.35); margin-top:2px; }
   .rf { display:grid; gap:10px; }
   .fr { display:flex; gap:8px; align-items:flex-end; }
   .fg { flex:1; min-width:0; }
   .fl { font-size:11px; color:rgba(255,255,255,.42); margin-bottom:4px; }
-  .aw { position:relative; }
-  .al { position:absolute; top:calc(100% + 4px); left:0; right:0; background:rgba(15,25,55,.97); backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,.18); border-radius:13px; z-index:200; max-height:220px; overflow-y:auto; box-shadow:0 8px 28px rgba(0,0,0,.4); display:none; }
-  .ai { padding:11px 15px; font-size:14px; cursor:pointer; border-bottom:1px solid rgba(255,255,255,.05); }
-  .ai:last-child { border-bottom:none; }
-  .ai:hover, .ai:active { background:rgba(255,255,255,.12); }
   .ri { width:100%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:13px; padding:13px 16px; font-size:15px; color:#fff; font-family:inherit; outline:none; transition:all .2s; }
   .ri::placeholder { color:rgba(255,255,255,.32); }
   .ri:focus { border-color:rgba(255,255,255,.5); background:rgba(255,255,255,.16); }
   .sw { background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:17px; color:rgba(255,255,255,.65); transition:all .2s; flex-shrink:0; }
-  .sw:hover { background:rgba(255,255,255,.18); transform:rotate(180deg); }
+  .sw:hover { transform:rotate(180deg); background:rgba(255,255,255,.18); }
   .dp { display:flex; gap:8px; flex-wrap:wrap; }
   .dp-p { padding:7px 14px; border-radius:50px; font-size:13px; font-weight:500; cursor:pointer; border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.07); color:rgba(255,255,255,.55); transition:all .2s; user-select:none; }
   .dp-p.on { background:rgba(255,255,255,.2); border-color:rgba(255,255,255,.38); color:#fff; }
@@ -76,42 +77,38 @@
   .st-title { font-size:18px; font-weight:700; }
   .st-meta { font-size:12px; color:rgba(255,255,255,.42); margin-top:3px; }
   .divl { border:none; border-top:1px solid rgba(255,255,255,.08); margin:14px 0; }
-  .departures-title { font-size:11px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
+  .dep-title { font-size:11px; font-weight:600; letter-spacing:.6px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:10px; display:flex; align-items:center; gap:8px; }
   .live-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; box-shadow:0 0 6px #4ade80; animation:pulse 1.5s infinite; }
   @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-  .dep-row { display:grid; grid-template-columns:54px 1fr auto 44px; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; margin-bottom:6px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07); transition:background .15s; }
+  .dep-row { display:grid; grid-template-columns:60px 1fr 60px 44px; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; margin-bottom:6px; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.07); transition:background .15s; }
   .dep-row:hover { background:rgba(255,255,255,.09); }
   .dep-row.imminent { background:rgba(100,200,100,.08); border-color:rgba(100,200,100,.2); }
-  .dep-row.now { background:rgba(255,210,50,.07); border-color:rgba(255,210,50,.25); }
-  .dep-row.cancelled { background:rgba(220,50,50,.08); border-color:rgba(220,50,50,.2); opacity:.7; }
-  .dep-time { font-size:17px; font-weight:700; font-variant-numeric:tabular-nums; letter-spacing:-.5px; }
-  .dep-time.imminent { color:#4ade80; }
-  .dep-time.now { color:#fde047; }
-  .dep-time.cancelled { color:#f87171; text-decoration:line-through; }
+  .dep-row.now      { background:rgba(255,210,50,.07);  border-color:rgba(255,210,50,.25); }
+  .dep-time { font-size:17px; font-weight:700; font-variant-numeric:tabular-nums; letter-spacing:-.5px; line-height:1.1; }
+  .dep-time small { display:block; font-size:10px; font-weight:400; color:rgba(255,255,255,.35); text-decoration:line-through; }
+  .dep-time.c-now      { color:#fde047; }
+  .dep-time.c-imminent { color:#4ade80; }
   .dep-info { min-width:0; }
   .dep-dest { font-size:14px; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .dep-line-wrap { display:flex; align-items:center; gap:6px; margin-top:3px; flex-wrap:wrap; }
-  .dep-sub { font-size:11px; color:rgba(255,255,255,.4); }
+  .dep-line-wrap { display:flex; align-items:center; gap:5px; margin-top:3px; flex-wrap:wrap; }
   .dep-delay { font-size:10px; padding:2px 6px; border-radius:4px; font-weight:600; }
-  .dep-delay.late { background:rgba(239,68,68,.2); color:#fca5a5; border:1px solid rgba(239,68,68,.3); }
-  .dep-delay.early { background:rgba(34,197,94,.15); color:#86efac; border:1px solid rgba(34,197,94,.25); }
-  .dep-delay.ontime { background:rgba(100,200,100,.12); color:#86efac; }
+  .dep-delay.late  { background:rgba(239,68,68,.2);   color:#fca5a5; border:1px solid rgba(239,68,68,.3); }
+  .dep-delay.early { background:rgba(34,197,94,.15);  color:#86efac; border:1px solid rgba(34,197,94,.25); }
+  .dep-rt { font-size:10px; color:rgba(100,220,100,.7); }
   .dep-countdown { font-size:13px; font-weight:600; font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap; }
-  .dep-countdown.now { color:#fde047; }
-  .dep-countdown.imminent { color:#4ade80; }
-  .dep-countdown.soon { color:rgba(255,255,255,.7); }
-  .dep-via { font-size:10px; font-weight:600; letter-spacing:.4px; color:rgba(255,255,255,.35); text-align:center; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:7px; padding:4px 6px; line-height:1.3; }
+  .dep-countdown.c-now      { color:#fde047; }
+  .dep-countdown.c-imminent { color:#4ade80; }
+  .dep-countdown.c-soon     { color:rgba(255,255,255,.7); }
+  .dep-via { font-size:10px; font-weight:600; color:rgba(255,255,255,.35); text-align:center; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:7px; padding:4px 6px; line-height:1.3; }
   .dep-via span { font-size:13px; font-weight:700; color:rgba(255,255,255,.7); display:block; }
   .loading { text-align:center; padding:28px; color:rgba(255,255,255,.4); font-size:14px; }
-  .spinner { display:inline-block; width:20px; height:20px; border:2px solid rgba(255,255,255,.15); border-top-color:rgba(255,255,255,.6); border-radius:50%; animation:spin .7s linear infinite; margin-right:10px; vertical-align:middle; }
+  .spinner { display:inline-block; width:18px; height:18px; border:2px solid rgba(255,255,255,.15); border-top-color:rgba(255,255,255,.6); border-radius:50%; animation:spin .7s linear infinite; margin-right:8px; vertical-align:middle; }
   @keyframes spin { to { transform:rotate(360deg); } }
-  .alert-bar { background:rgba(239,68,68,.12); border:1px solid rgba(239,68,68,.25); border-radius:12px; padding:10px 14px; margin-bottom:8px; font-size:13px; }
-  .alert-bar strong { color:#fca5a5; display:block; margin-bottom:3px; }
   .tpw { display:flex; gap:8px; align-items:stretch; }
   .tiw { display:flex; align-items:center; gap:7px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.18); border-radius:11px; padding:11px 13px; flex:1; }
   .tiw:focus-within { border-color:rgba(255,255,255,.42); background:rgba(255,255,255,.14); }
   .tic { font-size:15px; opacity:.55; }
-  .tin { background:transparent; border:none; outline:none; font-size:15px; font-weight:600; color:#fff; font-family:inherit; font-variant-numeric:tabular-nums; cursor:pointer; min-width:88px; }
+  .tin { background:transparent; border:none; outline:none; font-size:15px; font-weight:600; color:#fff; font-family:inherit; cursor:pointer; min-width:88px; }
   .tin::-webkit-calendar-picker-indicator { filter:invert(1); opacity:.55; cursor:pointer; }
   .nb { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16); border-radius:9px; padding:11px 13px; font-size:13px; font-weight:500; color:rgba(255,255,255,.6); cursor:pointer; font-family:inherit; transition:all .2s; white-space:nowrap; }
   .nb:hover { background:rgba(255,255,255,.14); color:#fff; }
@@ -132,10 +129,9 @@
   .jstop.o::before, .jstop.d::before { width:11px; height:11px; left:-15px; background:#64c8ff; }
   .stoptime { float:right; font-variant-numeric:tabular-nums; color:rgba(255,255,255,.45); font-size:12px; }
   .fb { display:inline-flex; align-items:center; gap:4px; background:rgba(100,200,255,.1); border:1px solid rgba(100,200,255,.22); border-radius:50px; padding:3px 9px; font-size:11px; color:rgba(100,200,255,.85); }
-  @media(max-width:520px) {
-    .fr { flex-direction:column; } .sw { align-self:center; }
-    .tpw { flex-direction:column; }
-    .dep-row { grid-template-columns:48px 1fr auto 36px; gap:7px; }
+  @media(max-width:520px){
+    .fr{flex-direction:column}.sw{align-self:center}.tpw{flex-direction:column}
+    .dep-row{grid-template-columns:52px 1fr 48px}
   }
 </style>
 </head>
@@ -144,12 +140,12 @@
   <header>
     <div class="pill"><div class="dot"></div><span class="lt">RODALIES DE CATALUNYA · TEMPS REAL</span></div>
     <h1>Horaris i Rutes</h1>
-    <p class="sub">Dades en temps real de Renfe · actualitzades cada 20 segons</p>
+    <p class="sub">Horaris oficials Renfe · retrasos en temps real</p>
   </header>
 
   <div class="tabs">
     <button class="tb on" id="tab-st" onclick="doTab('st')">🚉 Estacions</button>
-    <button class="tb" id="tab-rt" onclick="doTab('rt')">🗺️ Rutes</button>
+    <button class="tb"    id="tab-rt" onclick="doTab('rt')">🗺️ Rutes</button>
   </div>
 
   <!-- ESTACIONS -->
@@ -158,14 +154,16 @@
       <div class="sl">Cerca una estació</div>
       <div class="search-row">
         <div class="aw">
-          <input class="gi" id="ss" placeholder="Escriu el nom de l'estació..." autocomplete="off"
-            oninput="srchSt(this.value)" onkeydown="if(event.key==='Enter')doSearch()">
+          <input class="gi" id="ss" placeholder="Escriu el nom de l'estació..."
+            autocomplete="off" oninput="srchSt(this.value)" onkeydown="if(event.key==='Enter')doSearch()">
           <div class="al" id="ss-ac"></div>
         </div>
-        <button class="search-btn" onclick="doSearch()" title="Cercar">🔍</button>
+        <button class="search-btn" onclick="doSearch()">🔍</button>
       </div>
     </div>
-    <div id="st-res" class="res"></div>
+    <div id="st-res" class="res">
+      <div class="es"><div class="ei">🚉</div><div class="et">Cerca una estació per veure els propers trens</div></div>
+    </div>
   </div>
 
   <!-- RUTES -->
@@ -197,329 +195,198 @@
             <button class="nb" onclick="setNow()">⚡ Ara</button>
           </div>
         </div>
-        <div>
-          <div class="fl">Tipus de dia</div>
-          <div class="dp">
-            <div class="dp-p on" data-d="L" onclick="selDay(this)">📅 Laborable</div>
-            <div class="dp-p" data-d="S" onclick="selDay(this)">📆 Dissabte</div>
-            <div class="dp-p" data-d="F" onclick="selDay(this)">🗓️ Festiu</div>
-            <div class="dp-p" data-d="A" onclick="selDay(this)">🔄 Auto</div>
-          </div>
-        </div>
         <button class="bp" onclick="doRoute()">Buscar propers trens →</button>
       </div>
     </div>
-    <div id="rt-res" class="res"></div>
+    <div id="rt-res" class="res">
+      <div class="es"><div class="ei">🚂</div><div class="et">Selecciona origen i destí per buscar trens</div></div>
+    </div>
   </div>
 </div>
 
 <script>
 // ── Config ────────────────────────────────────────────────────────────────────
-// En producción Railway pondrá la URL real. En local apunta a localhost:3000
-var API_BASE = window.location.hostname === 'localhost'
-  ? 'http://localhost:3000'
-  : ''; // misma URL base (el proxy sirve también el frontend)
+// En producción la URL base es la misma (proxy sirve el frontend)
+var API = window.location.hostname === 'localhost' ? 'http://localhost:3000' : '';
 
-// ── Colores y datos locales ───────────────────────────────────────────────────
-var LC = {
-  R1:'#D72B2B',R2:'#9B2D8F',R2N:'#9B2D8F',R2S:'#9B2D8F',R3:'#0A7A3E',R4:'#F7941D',
-  R7:'#00AEEF',R8:'#EC008C',R11:'#00A99D',R12:'#8DC63F',R13:'#F15A24',R14:'#29ABE2',
-  R15:'#F7941D',R16:'#8B5CF6',R17:'#EC4899',RG1:'#D72B2B'
-};
-
-// Estaciones con sus stop_ids de Renfe GTFS
-var ST = [
-  {id:'79300',name:'Barcelona-Sants',            lines:['R1','R2','R2N','R2S','R3','R4','R11','R12','R13','R14','R15','R16','R17','RG1'],z:1},
-  {id:'79302',name:'Barcelona-Passeig de Gràcia',lines:['R2','R2N','R2S'],z:1},
-  {id:'79304',name:'Barcelona-Plaça de Catalunya',lines:['R1','R3','R4','R12','RG1'],z:1},
-  {id:'79306',name:'Barcelona-Arc de Triomf',    lines:['R1','R3','R4','R12','RG1'],z:1},
-  {id:'79308',name:'Barcelona-El Clot',          lines:['R1','R2','R2N','R11','RG1'],z:1},
-  {id:'79310',name:'La Sagrera-Meridiana',        lines:['R1','R2','R2N','R3'],z:1},
-  {id:'79318',name:"L'Hospitalet de Llobregat",  lines:['R1','R3','R4','R12','RG1'],z:1},
-  {id:'79320',name:'Cornellà',                   lines:['R1','R4'],z:1},
-  {id:'79322',name:'Sant Joan Despí',             lines:['R1','R4'],z:2},
-  {id:'79324',name:'Sant Feliu de Llobregat',    lines:['R1','R4'],z:2},
-  {id:'79326',name:'Molins de Rei',              lines:['R1','R4'],z:3},
-  {id:'79400',name:'Castellbisbal',              lines:['R4','R8'],z:4},
-  {id:'79402',name:'Martorell Central',          lines:['R4','R8'],z:4},
-  {id:'79404',name:'Gelida',                     lines:['R4'],z:4},
-  {id:'79406',name:"Sant Sadurní d'Anoia",       lines:['R4'],z:4},
-  {id:'79408',name:'Lavern-Subirats',            lines:['R4'],z:4},
-  {id:'79410',name:'La Granada',                 lines:['R4'],z:5},
-  {id:'79412',name:'Vilafranca del Penedès',     lines:['R4'],z:5},
-  {id:'79414',name:'Els Monjos',                 lines:['R4'],z:5},
-  {id:'79416',name:"L'Arboç",                    lines:['R4'],z:5},
-  {id:'79418',name:'El Vendrell',                lines:['R4'],z:5},
-  {id:'79420',name:'Sant Vicenç de Calders',     lines:['R2S','R4'],z:5},
-  {id:'79200',name:'Montcada Bifurcació',        lines:['R2N','R4'],z:2},
-  {id:'79202',name:'Montcada i Reixac',          lines:['R2N'],z:2},
-  {id:'79204',name:'Montcada-Ripollet',          lines:['R2N'],z:2},
-  {id:'79206',name:'Barberà del Vallès',         lines:['R2N'],z:3},
-  {id:'79208',name:'Sabadell Sud',               lines:['R4'],z:4},
-  {id:'79210',name:'Sabadell Centre',            lines:['R4'],z:4},
-  {id:'79212',name:'Sabadell Nord',              lines:['R4'],z:4},
-  {id:'79214',name:'Terrassa Est',               lines:['R4'],z:4},
-  {id:'79216',name:'Terrassa Estació del Nord',  lines:['R4'],z:4},
-  {id:'79218',name:'Rubí',                       lines:['R4'],z:3},
-  {id:'79220',name:'Cerdanyola del Vallès',      lines:['R4','R7','R8'],z:3},
-  {id:'79222',name:'Cerdanyola Universitat',     lines:['R7','R8'],z:3},
-  {id:'79100',name:'Mollet-Sant Fost',           lines:['R2N','R8'],z:3},
-  {id:'79102',name:'Mollet-Santa Rosa',          lines:['R2N'],z:3},
-  {id:'79104',name:'La Llagosta',                lines:['R2N'],z:3},
-  {id:'79106',name:'Les Franqueses del Vallès',  lines:['R2N'],z:4},
-  {id:'79108',name:'Granollers Centre',          lines:['R2','R2N','R8'],z:4},
-  {id:'79110',name:'Granollers-Canovelles',      lines:['R11','R8'],z:4},
-  {id:'78802',name:'Sant Adrià de Besòs',        lines:['R1','RG1'],z:1},
-  {id:'78804',name:'Badalona',                   lines:['R1','RG1'],z:1},
-  {id:'78806',name:'Montgat',                    lines:['R1','RG1'],z:2},
-  {id:'78808',name:'Montgat Nord',               lines:['R1','RG1'],z:2},
-  {id:'78810',name:'El Masnou',                  lines:['R1','RG1'],z:3},
-  {id:'78812',name:'Ocata',                      lines:['R1','RG1'],z:3},
-  {id:'78814',name:'Premià de Mar',              lines:['R1','RG1'],z:3},
-  {id:'78816',name:'Vilassar de Mar',            lines:['R1','RG1'],z:3},
-  {id:'78818',name:'Cabrera de Mar-Vilassar',    lines:['R1','RG1'],z:4},
-  {id:'78820',name:'Mataró',                     lines:['R1','RG1'],z:4},
-  {id:'78822',name:'Sant Pol de Mar',            lines:['R1'],z:5},
-  {id:'78824',name:'Calella',                    lines:['R1'],z:5},
-  {id:'78826',name:'Pineda de Mar',              lines:['R1'],z:5},
-  {id:'78828',name:'Santa Susanna',              lines:['R1'],z:5},
-  {id:'78830',name:'Blanes',                     lines:['R1'],z:6},
-  {id:'78832',name:'Tordera',                    lines:['R1'],z:6},
-  {id:'78834',name:'Maçanet-Massanes',           lines:['R1','R2N'],z:6},
-  {id:'72000',name:'Bellvitge | Gornal',         lines:['R2','R2N','R2S'],z:1},
-  {id:'72002',name:'El Prat de Llobregat',       lines:['R2','R2N','R2S'],z:2},
-  {id:'72004',name:'Aeroport',                   lines:['R2N'],z:2},
-  {id:'72006',name:'Viladecans',                 lines:['R2','R2S'],z:2},
-  {id:'72008',name:'Gavà',                       lines:['R2','R2S'],z:3},
-  {id:'72010',name:'Castelldefels',              lines:['R2','R2S'],z:3},
-  {id:'72012',name:'Platja de Castelldefels',    lines:['R2S'],z:3},
-  {id:'72014',name:'Garraf',                     lines:['R2S'],z:4},
-  {id:'72016',name:'Sitges',                     lines:['R2S'],z:4},
-  {id:'72018',name:'Vilanova i la Geltrú',       lines:['R2S'],z:5},
-  {id:'72020',name:'Cubelles',                   lines:['R2S'],z:5},
-  {id:'72022',name:'Cunit',                      lines:['R2S'],z:5},
-  {id:'72024',name:'Segur de Calafell',          lines:['R2S'],z:5},
-  {id:'72026',name:'Calafell',                   lines:['R2S'],z:5},
-  {id:'79316',name:"Barcelona-Estació de França",lines:['R2S','R13','R14','R15','R16','R17'],z:1},
-  {id:'79314',name:'Barcelona-Fabra i Puig',     lines:['R7'],z:1},
-  {id:'79312',name:'Barcelona-Sant Andreu',      lines:['R7'],z:1},
-  {id:'79500',name:'La Garriga',                 lines:['R3'],z:4},
-  {id:'79502',name:'Figaró',                     lines:['R3'],z:5},
-  {id:'79504',name:'Vic',                        lines:['R3'],z:6},
-  {id:'79506',name:'Puigcerdà',                  lines:['R3'],z:6},
-  {id:'71000',name:'Girona',                     lines:['R11'],z:6},
-  {id:'71002',name:'Figueres',                   lines:['R11'],z:6},
-  {id:'71004',name:'Portbou',                    lines:['R11'],z:6},
-  {id:'73000',name:'Tarragona',                  lines:['R14','R15','R16','R17'],z:6},
-  {id:'73002',name:'Reus',                       lines:['R14','R15'],z:6},
-  {id:'73004',name:'Cambrils',                   lines:['R16','R17'],z:6},
-  {id:'73006',name:'Salou-Port Aventura',        lines:['R17'],z:6},
-  {id:'73008',name:'Tortosa',                    lines:['R16'],z:6},
-  {id:'74000',name:'Lleida Pirineus',            lines:['R12','R13','R14'],z:6},
-];
-
-var APP = { day:'L', ori:null, dst:null };
+var APP = { ori: null, dst: null };
 var TIMER_ID = null;
 var currentStation = null;
+
+// Cache local de búsquedas de estaciones para no llamar /api/stops en cada tecla
+var stopCache = {};
 
 function pad(n){ return String(n).padStart(2,'0'); }
 function nowStr(){ var n=new Date(); return pad(n.getHours())+':'+pad(n.getMinutes()); }
 function nowMin(){ var n=new Date(); return n.getHours()*60+n.getMinutes(); }
-function s2m(s){ var p=s.split(':'); return parseInt(p[0])*60+parseInt(p[1]); }
+function s2m(s){ var p=s.split(':'); return parseInt(p[0],10)*60+parseInt(p[1],10); }
 function m2s(m){ return pad(Math.floor(m/60)%24)+':'+pad(m%60); }
 function addM(t,d){ return m2s(s2m(t)+d); }
+function setNow(){ document.getElementById('deptime').value=nowStr(); }
 
-function badge(l){ return '<span class="lb" style="background:'+(LC[l]||'#555')+'">'+l+'</span>'; }
-
-function countdown(depTime) {
-  var nm = nowMin();
-  var dm = s2m(depTime);
-  var diff = dm - nm;
-  if(diff < 0) return null;
-  if(diff === 0) return {label:'Ara', cls:'now'};
-  if(diff <= 1)  return {label:'1 min', cls:'now'};
-  if(diff < 60)  return {label:diff+' min', cls: diff<=5?'imminent':'soon'};
-  var h=Math.floor(diff/60), m=diff%60;
-  return {label:h+'h'+(m>0?' '+m+'m':''), cls:'soon'};
-}
-
-function dayAuto(){
-  var d=new Date(),day=d.getDay(),mo=d.getMonth()+1,dt=d.getDate();
-  var h=[[1,1],[1,6],[4,18],[5,1],[6,24],[8,15],[9,11],[9,24],[10,12],[11,1],[12,6],[12,8],[12,25],[12,26]];
-  for(var i=0;i<h.length;i++) if(h[i][0]===mo&&h[i][1]===dt) return 'F';
-  if(day===0) return 'F'; if(day===6) return 'S'; return 'L';
-}
-
-// ── Tabs ──────────────────────────────────────────────────────────────────────
 function doTab(id){
-  document.getElementById('tab-st').classList.toggle('on',id==='st');
-  document.getElementById('tab-rt').classList.toggle('on',id==='rt');
-  document.getElementById('pn-st').classList.toggle('on',id==='st');
-  document.getElementById('pn-rt').classList.toggle('on',id==='rt');
+  ['st','rt'].forEach(function(t){
+    document.getElementById('tab-'+t).classList.toggle('on',t===id);
+    document.getElementById('pn-'+t).classList.toggle('on',t===id);
+  });
   if(id==='rt'&&TIMER_ID){ clearInterval(TIMER_ID); TIMER_ID=null; }
   if(id==='st'&&currentStation&&!TIMER_ID) TIMER_ID=setInterval(loadDepartures,20000);
 }
 
-function selDay(el){
-  document.querySelectorAll('.dp-p').forEach(function(p){p.classList.remove('on');});
-  el.classList.add('on'); APP.day=el.getAttribute('data-d');
+// ── Busca estaciones en el servidor ──────────────────────────────────────────
+function apiStops(q, cb){
+  var key=q.toLowerCase();
+  if(stopCache[key]){ cb(stopCache[key]); return; }
+  fetch(API+'/api/stops?q='+encodeURIComponent(q))
+    .then(function(r){ return r.json(); })
+    .then(function(data){
+      stopCache[key]=Array.isArray(data)?data:[];
+      cb(stopCache[key]);
+    })
+    .catch(function(){ cb([]); });
 }
-function setNow(){ document.getElementById('deptime').value=nowStr(); }
 
-// ── Station search ────────────────────────────────────────────────────────────
+// ── Autocompletado estaciones ─────────────────────────────────────────────────
 function srchSt(val){
   var ac=document.getElementById('ss-ac');
   if(!val||val.length<2){ ac.style.display='none'; return; }
-  var q=val.toLowerCase();
-  var m=ST.filter(function(s){ return s.name.toLowerCase().indexOf(q)!==-1; }).slice(0,9);
-  if(!m.length){ ac.style.display='none'; return; }
-  ac.innerHTML=m.map(function(s){
-    return '<div class="ai" onmousedown="pickSt(\''+s.id+'\')">'+s.name+'</div>';
-  }).join('');
-  ac.style.display='block';
+  apiStops(val, function(stops){
+    if(!stops.length){ ac.style.display='none'; return; }
+    ac.innerHTML=stops.slice(0,9).map(function(s){
+      return '<div class="ai" onmousedown="pickSt(\''+escId(s.id)+'\',\''+escStr(s.name)+'\')">'+s.name+'</div>';
+    }).join('');
+    ac.style.display='block';
+  });
 }
 
 function doSearch(){
   var val=document.getElementById('ss').value.trim();
   if(!val) return;
   document.getElementById('ss-ac').style.display='none';
-  var q=val.toLowerCase();
-  var m=ST.filter(function(s){ return s.name.toLowerCase().indexOf(q)!==-1; });
-  if(m.length===1){ pickSt(m[0].id); }
-  else if(m.length>1){ renderGrid(m); }
-  else { document.getElementById('st-res').innerHTML='<div class="es"><div class="ei">🔍</div><div class="et">No s\'ha trobat cap estació amb "'+val+'"</div></div>'; }
+  apiStops(val, function(stops){
+    if(stops.length===1){ pickSt(stops[0].id, stops[0].name); }
+    else if(stops.length>1){ renderGrid(stops); }
+    else { document.getElementById('st-res').innerHTML='<div class="es"><div class="ei">🔍</div><div class="et">Cap estació trobada amb "'+val+'"</div></div>'; }
+  });
 }
 
-function pickSt(id){
-  var s=ST.find(function(x){ return x.id===id; }); if(!s) return;
-  document.getElementById('ss').value=s.name;
+function pickSt(id, name){
+  document.getElementById('ss').value=name;
   document.getElementById('ss-ac').style.display='none';
-  currentStation=s;
+  currentStation={id:id, name:name};
   if(TIMER_ID) clearInterval(TIMER_ID);
   loadDepartures();
   TIMER_ID=setInterval(loadDepartures, 20000);
 }
 
-function renderGrid(arr){
-  if(!arr.length){
-    document.getElementById('st-res').innerHTML='<div class="es"><div class="ei">🔍</div><div class="et">No s\'han trobat estacions</div></div>';
-    return;
-  }
-  document.getElementById('st-res').innerHTML=arr.map(function(s){
-    return '<div class="rc" onclick="pickSt(\''+s.id+'\')">'
-      +'<div class="sh"><div class="si">🚉</div>'
-      +'<div><div class="sn">'+s.name+'</div><div class="sm">Zona '+s.z+'</div></div></div>'
-      +'<div class="lr">'+s.lines.map(badge).join('')+'</div></div>';
+function renderGrid(stops){
+  document.getElementById('st-res').innerHTML=stops.slice(0,12).map(function(s){
+    return '<div class="rc" onclick="pickSt(\''+escId(s.id)+'\',\''+escStr(s.name)+'\')">'
+      +'<div class="sh"><div class="si">🚉</div><div><div class="sn">'+s.name+'</div></div></div></div>';
   }).join('');
 }
 
-// ── Load real-time departures from proxy ─────────────────────────────────────
+// ── Carga de salidas en tiempo real ───────────────────────────────────────────
 function loadDepartures(){
   var st=currentStation; if(!st) return;
   var res=document.getElementById('st-res');
 
-  // Header amb spinner
+  // Mostrar skeleton con header ya visible
   res.innerHTML='<div class="st-detail">'
     +'<div class="st-detail-header"><div class="st-icon-big">🚉</div>'
-    +'<div><div class="st-title">'+st.name+'</div>'
-    +'<div class="st-meta">Zona '+st.z+' · '+st.lines.length+' línia'+(st.lines.length!==1?'s':'')+'</div>'
-    +'<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px">'+st.lines.map(badge).join('')+'</div>'
-    +'</div></div>'
+    +'<div><div class="st-title">'+st.name+'</div></div></div>'
     +'<hr class="divl">'
-    +'<div class="loading"><span class="spinner"></span>Carregant horaris en temps real...</div>'
+    +'<div class="loading"><span class="spinner"></span>Carregant horaris...</div>'
     +'</div>';
 
-  fetch(API_BASE+'/api/departures?stopId='+st.id)
-    .then(function(r){ return r.json(); })
-    .then(function(data){ renderDepartures(st, data); })
+  fetch(API+'/api/departures?stopId='+encodeURIComponent(st.id))
+    .then(function(r){
+      if(r.status===503) return r.json().then(function(d){ throw {loading:true, msg:d.error}; });
+      return r.json();
+    })
+    .then(function(data){ renderDeps(st, data); })
     .catch(function(err){
-      console.error(err);
-      // Fallback: mostrar error amigable
-      var detail=document.querySelector('.st-detail');
-      if(detail){
-        detail.querySelector('.loading').innerHTML
-          ='⚠️ No s\'han pogut carregar les dades en temps real.<br>'
-          +'<span style="font-size:12px;opacity:.6">Comprova que el servidor proxy està actiu.</span>';
-      }
+      var msg = err && err.loading
+        ? '⏳ '+err.msg
+        : '⚠️ Error connectant amb el servidor.';
+      res.innerHTML='<div class="st-detail">'
+        +'<div class="st-detail-header"><div class="st-icon-big">🚉</div>'
+        +'<div><div class="st-title">'+st.name+'</div></div></div>'
+        +'<hr class="divl">'
+        +'<div class="loading">'+msg+'</div></div>';
     });
 }
 
-function renderDepartures(st, data){
+function renderDeps(st, data){
   var res=document.getElementById('st-res');
-  var isHol=dayAuto()==='F';
+  var nm=nowMin();
+  var deps=data.departures||[];
+  var ts=new Date(data.updatedAt).toLocaleTimeString('ca',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
 
   var html='<div class="st-detail">'
     +'<div class="st-detail-header"><div class="st-icon-big">🚉</div>'
-    +'<div><div class="st-title">'+st.name+(isHol?' <span style="font-size:12px;background:rgba(255,200,50,.13);border:1px solid rgba(255,200,50,.3);border-radius:50px;padding:2px 8px;color:rgba(255,220,100,.9);margin-left:6px">✨ Festiu</span>':'')+'</div>'
-    +'<div class="st-meta">Zona '+st.z+' · actualitzat '+new Date(data.updatedAt).toLocaleTimeString('ca',{hour:'2-digit',minute:'2-digit',second:'2-digit'})+'</div>'
-    +'<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:6px">'+st.lines.map(badge).join('')+'</div>'
-    +'</div></div>'
-    +'<hr class="divl">'
-    +'<div class="departures-title"><div class="live-dot"></div>Propers trens · temps real</div>';
-
-  var deps=data.departures||[];
+    +'<div><div class="st-title">'+st.name+'</div>'
+    +'<div class="st-meta">Actualitzat '+ts+'</div>'
+    +'</div></div><hr class="divl">'
+    +'<div class="dep-title"><div class="live-dot"></div>Propers trens</div>';
 
   if(!deps.length){
-    html+='<div class="es" style="padding:20px"><div class="et">No hi ha trens programats ara mateix</div></div>';
+    html+='<div class="es" style="padding:16px"><div class="et">No hi ha trens programats en les pròximes 2 hores</div></div>';
   } else {
-    for(var i=0;i<deps.length;i++){
-      var d=deps[i];
-      var cd=countdown(d.departure);
-      if(!cd) continue;
-      var isCancelled=(d.scheduleRelationship==='CANCELED'||d.scheduleRelationship==='NO_DATA');
-      var rowCls=isCancelled?'dep-row cancelled':cd.cls==='now'?'dep-row now':cd.cls==='imminent'?'dep-row imminent':'dep-row';
+    deps.forEach(function(d){
+      var realMin = s2m(d.departureReal);
+      var diff    = realMin - nm;
+      var cls = diff<=0?'now':diff<=5?'imminent':'';
+      var cdLabel = diff<=0?'Ara':diff<60?(diff+' min'):(Math.floor(diff/60)+'h'+(diff%60>0?' '+diff%60+'m':''));
+      var cdCls   = diff<=0?'c-now':diff<=5?'c-imminent':'c-soon';
 
-      // Badge de retraso
       var delayHtml='';
-      if(!isCancelled && d.delayMin!==0){
-        if(d.delayMin>0) delayHtml='<span class="dep-delay late">+'+d.delayMin+' min</span>';
-        else delayHtml='<span class="dep-delay early">'+d.delayMin+' min</span>';
-      }
-      if(isCancelled) delayHtml='<span class="dep-delay late">Suprimit</span>';
+      if(d.delayMin>0) delayHtml='<span class="dep-delay late">+'+d.delayMin+' min</span>';
+      else if(d.delayMin<0) delayHtml='<span class="dep-delay early">'+d.delayMin+' min</span>';
+      var rtHtml = d.hasRealtime ? '<span class="dep-rt">● temps real</span>' : '';
 
-      // Hora real (con retraso aplicado)
-      var depDisplay=d.departure;
-      if(d.delayMin>0 && !isCancelled){
-        depDisplay=addM(d.departure, d.delayMin);
+      var timeHtml = d.departureReal;
+      if(d.delayMin!==0){
+        timeHtml='<span>'+d.departureReal+'</span><small>'+d.departure+'</small>';
       }
 
-      html+='<div class="'+rowCls+'">'
-        +'<div class="dep-time '+cd.cls+(isCancelled?' cancelled':'')+'">'+depDisplay+'</div>'
+      html+='<div class="dep-row '+cls+'">'
+        +'<div class="dep-time c-'+cls+'">'+timeHtml+'</div>'
         +'<div class="dep-info">'
-        +'<div class="dep-dest">'+d.destination+'</div>'
+        +'<div class="dep-dest">'+(d.destination||'—')+'</div>'
         +'<div class="dep-line-wrap">'
-        +(d.routeId?badge(d.routeId):'')
-        +delayHtml
+        +(d.routeName?'<span class="lb" style="background:#555">'+d.routeName+'</span>':'')
+        +delayHtml+rtHtml
         +'</div></div>'
-        +'<div class="dep-countdown '+cd.cls+'">'+(isCancelled?'—':cd.label)+'</div>'
+        +'<div class="dep-countdown '+cdCls+'">'+cdLabel+'</div>'
         +'<div class="dep-via">VIA<span>'+(d.platform||'—')+'</span></div>'
         +'</div>';
-    }
+    });
   }
 
-  html+='<div style="font-size:11px;color:rgba(255,255,255,.22);margin-top:12px;text-align:center">'
-    +'Font: <a href="https://data.renfe.com" style="color:rgba(100,180,255,.4)">Renfe Open Data</a> · CC-BY 4.0 · s\'actualitza cada 20s</div></div>';
+  html+='<div style="font-size:11px;color:rgba(255,255,255,.2);margin-top:12px;text-align:center">'
+    +'Horaris: <a href="https://data.renfe.com" style="color:rgba(100,180,255,.4)">Renfe Open Data CC-BY 4.0</a>'
+    +' · s\'actualitza cada 20s</div></div>';
 
   res.innerHTML=html;
 }
 
-// ── Route panel ───────────────────────────────────────────────────────────────
+// ── Autocompletado rutes ──────────────────────────────────────────────────────
 function acRt(f,val){
   var ac=document.getElementById(f+'-ac');
   if(!val||val.length<2){ ac.style.display='none'; return; }
-  var q=val.toLowerCase();
-  var m=ST.filter(function(s){ return s.name.toLowerCase().indexOf(q)!==-1; }).slice(0,8);
-  if(!m.length){ ac.style.display='none'; return; }
-  ac.innerHTML=m.map(function(s){
-    return '<div class="ai" onmousedown="pickRt(\''+f+'\',\''+s.id+'\')">'+s.name+'</div>';
-  }).join('');
-  ac.style.display='block';
+  apiStops(val, function(stops){
+    if(!stops.length){ ac.style.display='none'; return; }
+    ac.innerHTML=stops.slice(0,8).map(function(s){
+      return '<div class="ai" onmousedown="pickRt(\''+f+'\',\''+escId(s.id)+'\',\''+escStr(s.name)+'\')">'+s.name+'</div>';
+    }).join('');
+    ac.style.display='block';
+  });
 }
 
-function pickRt(f,id){
-  var s=ST.find(function(x){ return x.id===id; }); if(!s) return;
-  if(f==='o'){ APP.ori=s; document.getElementById('ori').value=s.name; }
-  else       { APP.dst=s; document.getElementById('dst').value=s.name; }
+function pickRt(f,id,name){
+  if(f==='o'){ APP.ori={id:id,name:name}; document.getElementById('ori').value=name; }
+  else       { APP.dst={id:id,name:name}; document.getElementById('dst').value=name; }
   document.getElementById(f+'-ac').style.display='none';
 }
 
@@ -534,69 +401,68 @@ function doRoute(){
   if(!APP.ori||!APP.dst){ res.innerHTML='<div class="es"><div class="ei">⚠️</div><div class="et">Selecciona origen i destí</div></div>'; return; }
   if(APP.ori.id===APP.dst.id){ res.innerHTML='<div class="es"><div class="ei">🔄</div><div class="et">L\'origen i el destí no poden ser iguals</div></div>'; return; }
 
-  res.innerHTML='<div class="glass rr"><div class="loading"><span class="spinner"></span>Buscant trens en temps real...</div></div>';
-
-  // Buscar sortides des de l'origen
   var timVal=document.getElementById('deptime').value;
   var fromMin=timVal?s2m(timVal):nowMin();
-  var dayType=APP.day==='A'?dayAuto():APP.day;
-  var DL={L:'Laborable',S:'Dissabte',F:'Diumenge / Festiu'};
-  var travel=Math.abs(APP.ori.z-APP.dst.z)*8+10;
-  var common=APP.ori.lines.filter(function(l){ return APP.dst.lines.indexOf(l)!==-1; });
-  var isDirect=common.length>0;
 
-  fetch(API_BASE+'/api/departures?stopId='+APP.ori.id)
+  res.innerHTML='<div class="glass rr"><div class="loading"><span class="spinner"></span>Buscant trens...</div></div>';
+
+  fetch(API+'/api/departures?stopId='+encodeURIComponent(APP.ori.id))
     .then(function(r){ return r.json(); })
     .then(function(data){
-      var allDeps=data.departures||[];
-      // Filtrar por hora solicitada
-      var deps=allDeps.filter(function(d){
-        return d.departure && s2m(d.departure) >= fromMin && d.scheduleRelationship!=='CANCELED';
+      var all=data.departures||[];
+      var deps=all.filter(function(d){
+        return d.departureReal && s2m(d.departureReal)>=fromMin;
       }).slice(0,4);
 
       var html='<div class="glass rr">'
         +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:6px;flex-wrap:wrap">'
         +'<span style="font-size:15px;font-weight:600">'+APP.ori.name+' → '+APP.dst.name+'</span>'
-        +'<span class="lb" style="background:rgba(255,255,255,.13);color:rgba(255,255,255,.65)">'+DL[dayType]+(APP.day==='A'?' (auto)':'')+'</span>'
         +'</div>'
-        +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:14px;flex-wrap:wrap">'
-        +'<span style="font-size:12px;color:rgba(255,255,255,.38)">'+(isDirect?'Connexió directa · '+common.join(', '):'Possiblement amb transbordament')+' · ~'+travel+' min</span>'
+        +'<div style="display:flex;align-items:center;gap:7px;margin-bottom:14px">'
         +'<span class="fb">🕐 A partir de les '+m2s(fromMin)+'</span></div>';
 
       if(!deps.length){
         html+='<div class="es" style="padding:20px 0"><div class="et">No hi ha trens disponibles a partir d\'aquesta hora</div></div>';
       } else {
-        for(var ji=0;ji<deps.length;ji++){
-          var j=deps[ji], isFirst=ji===0;
-          var cd=countdown(j.departure), cdLabel=cd?cd.label:'';
-          var depReal=j.delayMin>0?addM(j.departure,j.delayMin):j.departure;
-          var arrReal=addM(depReal,travel);
+        deps.forEach(function(j,ji){
+          var isFirst=ji===0;
+          var travelMin=15; // estimació mínima; sense GTFS complet no podem calcular exacte
+          var depMin=s2m(j.departureReal);
+          var arrMin=depMin+travelMin;
+          var cd=depMin-nowMin();
+          var cdLabel=cd<=0?'Ara':cd<60?(cd+' min'):(Math.floor(cd/60)+'h '+(cd%60)+'m');
 
           html+='<div class="jc'+(isFirst?' first':'')+'">'
             +'<div class="jh"><div>'
-            +'<div class="jtimes"><div class="jtime'+(isFirst?' hi':'')+'">'+depReal+'</div>'
-            +'<div class="jar">→</div><div class="jtime">'+arrReal+'</div></div>'
+            +'<div class="jtimes"><div class="jtime'+(isFirst?' hi':'')+'">'+j.departureReal+'</div>'
+            +'<div class="jar">→</div><div class="jtime">'+m2s(arrMin)+'*</div></div>'
             +'<div class="jlines">'
-            +(j.routeId?badge(j.routeId):'')
-            +(j.delayMin>0?'<span style="background:rgba(239,68,68,.2);color:#fca5a5;border:1px solid rgba(239,68,68,.3);border-radius:4px;padding:2px 6px;font-size:10px;font-weight:600">+'+j.delayMin+' min</span>':'')
+            +(j.routeName?'<span class="lb" style="background:#555">'+j.routeName+'</span>':'')
+            +(j.delayMin>0?'<span class="dep-delay late" style="font-size:11px">+'+j.delayMin+' min</span>':'')
+            +(j.hasRealtime?'<span style="font-size:10px;color:rgba(100,220,100,.7)">● temps real</span>':'')
             +'</div></div>'
-            +'<div style="text-align:right"><div class="jdur">~'+travel+' min</div>'
-            +(isFirst&&cdLabel?'<div style="font-size:10px;color:rgba(100,200,255,.75);margin-top:3px">'+cdLabel+'</div>':'')
+            +'<div style="text-align:right"><div class="jdur">~'+travelMin+'+ min</div>'
+            +(isFirst?'<div style="font-size:10px;color:rgba(100,200,255,.75);margin-top:3px">'+cdLabel+'</div>':'')
             +'</div></div>'
             +'<div class="jstops">'
-            +'<div class="jstop o">'+APP.ori.name+'<span class="stoptime">'+depReal+'</span></div>'
-            +'<div class="jstop d">'+APP.dst.name+'<span class="stoptime">'+arrReal+'</span></div>'
-            +'</div></div>';
-        }
+            +'<div class="jstop o">'+APP.ori.name+'<span class="stoptime">'+j.departureReal+'</span></div>'
+            +'<div class="jstop d">'+APP.dst.name+'<span class="stoptime">'+m2s(arrMin)+'*</span></div>'
+            +'</div>'
+            +'</div>';
+        });
+        html+='<div style="font-size:11px;color:rgba(255,255,255,.25);margin-top:8px">* Hora d\'arribada estimada. Consulta <a href="https://rodalies.gencat.cat" style="color:rgba(100,180,255,.4)">rodalies.gencat.cat</a> per horaris exactes.</div>';
       }
-      html+='<div style="font-size:11px;color:rgba(255,255,255,.22);margin-top:10px;text-align:center">'
-        +'Dades: <a href="https://data.renfe.com" style="color:rgba(100,180,255,.45)">Renfe Open Data CC-BY 4.0</a></div></div>';
+      html+='</div>';
       res.innerHTML=html;
     })
-    .catch(function(err){
-      res.innerHTML='<div class="glass rr"><div class="es"><div class="ei">⚠️</div><div class="et">Error en obtenir les dades del servidor</div></div></div>';
+    .catch(function(){
+      res.innerHTML='<div class="glass rr"><div class="es"><div class="ei">⚠️</div><div class="et">Error connectant amb el servidor</div></div></div>';
     });
 }
+
+// ── Utils ─────────────────────────────────────────────────────────────────────
+function escId(s){ return (s||'').replace(/'/g,"\\'"); }
+function escStr(s){ return (s||'').replace(/'/g,"\\'").replace(/"/g,'&quot;'); }
 
 document.addEventListener('click',function(e){
   if(!e.target.closest('.aw')&&!e.target.closest('.search-btn'))
@@ -604,7 +470,6 @@ document.addEventListener('click',function(e){
 });
 
 setNow();
-renderGrid(ST.slice(0,8));
 </script>
 </body>
 </html>
